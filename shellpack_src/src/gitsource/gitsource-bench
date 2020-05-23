@@ -17,14 +17,14 @@ cp -ar $SHELLPACK_SOURCES/gitsource-${VERSION}-installed $SHELLPACK_DATA || die 
 cd $SHELLPACK_DATA/gitsource-${VERSION}-installed || die Failed to cd to gitsource-$VERSION-installed
 
 echo Warming run
-make test > $LOGDIR_RESULTS/warmup.log 2>&1
+make -j $NUMCPUS test > $LOGDIR_RESULTS/warmup.log 2>&1
 tail $LOGDIR_RESULTS/warmup.log
 
 monitor_pre_hook $LOGDIR_RESULTS $P
 ###SHELLPACK iteration_begin $GITSOURCE_ITERATIONS
 	echo Starting iteration $ITERATION/$GITSOURCE_ITERATIONS
 	$TIME_CMD -o $LOGDIR_RESULTS/gitsource-${ITERATION}.time \
-		make test \
+		make -j $NUMCPUS test \
 		> $LOGDIR_RESULTS/gitsource-${ITERATION}.log 2>&1
 	tail $LOGDIR_RESULTS/gitsource-${ITERATION}.log
 	gzip $LOGDIR_RESULTS/gitsource-${ITERATION}.log
