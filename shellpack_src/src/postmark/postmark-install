@@ -1,7 +1,7 @@
 #!/bin/bash
 # postmarkmark installer
 ###SHELLPACK preamble postmark-install 1.51.orig
-WEB_LOCATION=http://ftp.de.debian.org/debian/pool/main/p/postmark
+WEB_LOCATION=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/postmark/1.51-3
 MIRROR_LOCATION="$WEBROOT/postmark/"
 
 ###SHELLPACK parseargBegin
