@@ -1392,7 +1392,7 @@ for SUBREPORT in $(run_report_name $KERNEL_BASE); do
 					echo "<tr>"
 				fi
 				RANGE_CMD="--yrange 0:100"
-				if [ "$EVENT" = "CorrWatt" -o "$EVENT" = "PkgWatt" -o "$EVENT" = "Avg_MHz" ]; then
+				if [ "$EVENT" = "CorWatt" -o "$EVENT" = "PkgWatt" -o "$EVENT" = "Avg_MHz" ]; then
 					RANGE_CMD=
 				fi
 				eval $GRAPH_PNG --title \"$EVENT\"   $RANGE_CMD --print-monitor turbostat --sub-heading $EVENT --output $OUTPUT_DIRECTORY/graph-$SUBREPORT-turbostat-$EVENT_FILENAME --with-smooth
